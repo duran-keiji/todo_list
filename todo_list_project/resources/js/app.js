@@ -9,6 +9,11 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Vue from "vue";
+import Vuetify from 'vuetify';
+import 'vuetify/dist/vuetify.min.css';
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
+
 import VueRouter from 'vue-router';
 import HeaderComponent from "./components/HeaderComponent";
 import TaskListComponent from "./components/TaskListComponent";
@@ -16,7 +21,10 @@ import TaskCreateComponent from "./components/TaskCreateComponent";
 import TaskShowComponent from "./components/TaskShowComponent";
 import TaskEditComponent from "./components/TaskEditComponent";
 
+Vue.config.productionTip = false
+
 Vue.use(VueRouter);
+Vue.use(Vuetify);
 
 const router = new VueRouter({
          mode: 'history',
@@ -70,5 +78,6 @@ Vue.component('header-component', HeaderComponent);
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    vuetify: new Vuetify(),
 });
