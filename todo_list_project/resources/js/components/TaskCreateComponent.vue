@@ -29,7 +29,7 @@
  <script>
     export default {
         props: {
-            taskId: Number
+            taskId: String
         },
         data: function() {
             return {
