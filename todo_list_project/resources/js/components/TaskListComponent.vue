@@ -31,7 +31,7 @@
                             </router-link>
                         </td>
                         <td>
-                            <v-btn color="red" dark class="delete_btn btn-danger">Delete</v-btn>
+                            <v-btn v-on:click="deleteTask(task.id)" color="red" dark class="delete_btn btn-danger">Delete</v-btn>
                         </td>
                     </tr>
                 </tbody>
@@ -52,6 +52,12 @@
                 axios.get('/api/tasks')
                     .then((res) => {
                         this.tasks = res.data;
+                    });
+            },
+            deleteTask(taskId) {
+                axios.delete('/api/tasks/' + taskId)
+                    .then((res) => {
+                        this.getTasks();
                     });
             }
         },

@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-6">
-                    <v-form>
+                    <v-form v-on:submit.prevent="updateTask">
                         <div>    
                             <v-row>
                                 <div class="form-row">
@@ -72,7 +72,7 @@
         },
         data: function () {
             return {
-                task: []
+                task: {}
             }
         },
         methods: {
@@ -80,6 +80,12 @@
                 axios.get('/api/tasks/' + this.taskId )
                     .then((res) => {
                         this.task = res.data;
+                    });
+            },
+            updateTask() {
+                axios.put('/api/tasks/' + this.taskId, this.task)
+                    .then((res) => {
+                        this.$router.push({ name: 'task.list' });
                     });
             }
         },
