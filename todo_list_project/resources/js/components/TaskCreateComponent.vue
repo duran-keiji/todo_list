@@ -1,25 +1,54 @@
 <template>
-     <div class="container">
-         <div class="row justify-content-center">
-             <div class="col-sm-6">
-                <form v-on:submit.prevent="submit">
-                     <div class="form-group row">
-                        <label for="title" class="col-sm-3 col-form-label">Title</label>
-                        <input type="text" class="col-sm-9 form-control" id="title" v-model="task.title">
-                     </div>
-                     <div class="form-group row">
-                        <label for="content" class="col-sm-3 col-form-label">Content</label>
-                        <input type="text" class="col-sm-9 form-control" id="content" v-model="task.content">
-                     </div>
-                     <div class="form-group row">
-                        <label for="person-in-charge" class="col-sm-3 col-form-label">Person In Charge</label>
-                        <input type="text" class="col-sm-9 form-control" id="person_in_charge" v-model="task.person_in_charge">
-                     </div>
-                     <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-             </div>
-         </div>
-     </div>
+    <v-app>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <v-form v-on:submit.prevent="submit">
+                        <div>
+                            <v-row>
+                                <div class="form-row">
+                                    <label for="title" class="col-sm-3 col-form-label">Title</label>
+                                    <v-col cols="9" sm=”4” id="form-text">
+                                        <v-text-field
+                                            id="title"
+                                            v-model="task.title"
+                                            solox
+                                        >
+                                        </v-text-field>
+                                    </v-col>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="content" class="col-sm-3 col-form-label">Content</label>
+                                    <v-col cols="9" sm=”4” id="form-text">
+                                        <v-text-field
+                                            id="content"
+                                            v-model="task.content"
+                                            solox
+                                        >
+                                        </v-text-field>
+                                    </v-col>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="person-in-charge" class="col-sm-3 col-form-label">Person In Charge</label>
+                                    <v-col cols="9" sm=”4” id="form-text">
+                                        <v-text-field
+                                            id="person-in-charge"
+                                            v-model="task.person_in_charge"
+                                            solox
+                                        >
+                                        </v-text-field>
+                                    </v-col>
+                                </div>
+                            </v-row>
+                            <v-btn type="submit" color="primary" dark class="btn btn-primary">Submit</v-btn>
+                        </div>
+                    </v-form>
+                </div>
+            </div>
+        </div>
+    </v-app>
  </template>
  
  <script>
@@ -39,3 +68,20 @@
         }
     }
  </script>
+
+  <style scoped>
+    .form-row {
+        display: contents;
+    }
+    #form-text {
+        margin-top: -15px;
+    }
+    .btn {
+        display: block;
+        margin: 40px 0 0 auto;
+    }
+    v-text-field {
+        word-wrap: break-word;
+    }
+
+ </style>

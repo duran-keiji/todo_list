@@ -35,7 +35,6 @@
                                             v-model="task.content"
                                             solo
                                             label="Content"
-
                                             clearable
                                         >
                                         </v-text-field>
