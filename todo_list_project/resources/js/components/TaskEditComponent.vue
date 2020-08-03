@@ -19,8 +19,6 @@
                                         <v-text-field
                                             id="title"
                                             v-model="task.title"
-                                            solo
-                                            label="Title"
                                             clearable
                                         >
                                         </v-text-field>
@@ -33,8 +31,6 @@
                                         <v-text-field
                                             id="content"
                                             v-model="task.content"
-                                            solo
-                                            label="Content"
                                             clearable
                                         >
                                         </v-text-field>
@@ -47,8 +43,6 @@
                                         <v-text-field
                                             id="person-in-charge"
                                             v-model="task.person_in_charge"
-                                            solo
-                                            label="Person In Charge"
                                             clearable
                                         >
                                         </v-text-field>

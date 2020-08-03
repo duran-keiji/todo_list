@@ -1814,9 +1814,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1847,12 +1844,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -38810,7 +38801,7 @@ var render = function() {
                             },
                             [
                               _c("v-text-field", {
-                                attrs: { id: "title", solox: "" },
+                                attrs: { id: "title" },
                                 model: {
                                   value: _vm.task.title,
                                   callback: function($$v) {
@@ -38846,7 +38837,7 @@ var render = function() {
                             },
                             [
                               _c("v-text-field", {
-                                attrs: { id: "content", solox: "" },
+                                attrs: { id: "content" },
                                 model: {
                                   value: _vm.task.content,
                                   callback: function($$v) {
@@ -38882,7 +38873,7 @@ var render = function() {
                             },
                             [
                               _c("v-text-field", {
-                                attrs: { id: "person-in-charge", solox: "" },
+                                attrs: { id: "person-in-charge" },
                                 model: {
                                   value: _vm.task.person_in_charge,
                                   callback: function($$v) {
@@ -39021,12 +39012,7 @@ var render = function() {
                             },
                             [
                               _c("v-text-field", {
-                                attrs: {
-                                  id: "title",
-                                  solo: "",
-                                  label: "Title",
-                                  clearable: ""
-                                },
+                                attrs: { id: "title", clearable: "" },
                                 model: {
                                   value: _vm.task.title,
                                   callback: function($$v) {
@@ -39062,12 +39048,7 @@ var render = function() {
                             },
                             [
                               _c("v-text-field", {
-                                attrs: {
-                                  id: "content",
-                                  solo: "",
-                                  label: "Content",
-                                  clearable: ""
-                                },
+                                attrs: { id: "content", clearable: "" },
                                 model: {
                                   value: _vm.task.content,
                                   callback: function($$v) {
@@ -39105,8 +39086,6 @@ var render = function() {
                               _c("v-text-field", {
                                 attrs: {
                                   id: "person-in-charge",
-                                  solo: "",
-                                  label: "Person In Charge",
                                   clearable: ""
                                 },
                                 model: {

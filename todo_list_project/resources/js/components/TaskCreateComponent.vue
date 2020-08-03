@@ -12,7 +12,6 @@
                                         <v-text-field
                                             id="title"
                                             v-model="task.title"
-                                            solox
                                         >
                                         </v-text-field>
                                     </v-col>
@@ -24,7 +23,6 @@
                                         <v-text-field
                                             id="content"
                                             v-model="task.content"
-                                            solox
                                         >
                                         </v-text-field>
                                     </v-col>
@@ -36,7 +34,6 @@
                                         <v-text-field
                                             id="person-in-charge"
                                             v-model="task.person_in_charge"
-                                            solox
                                         >
                                         </v-text-field>
                                     </v-col>
