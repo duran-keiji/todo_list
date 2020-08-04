@@ -39,7 +39,7 @@
                                     </v-col>
                                 </div>
                             </v-row>
-                            <v-btn type="submit" color="primary" dark class="btn btn-primary">Submit</v-btn>
+                            <v-btn v-on:click="createTask" type="button" color="primary" dark class="btn btn-primary">Submit</v-btn>
                         </div>
                     </v-form>
                 </div>
@@ -56,7 +56,7 @@
             }
         },
         methods: {
-            submit() {
+            createTask() {
                 axios.post('/api/tasks', this.task)
                     .then((res) => {
                         this.$router.push({ name: 'task.list' });

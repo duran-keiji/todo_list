@@ -1821,7 +1821,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    submit: function submit() {
+    createTask: function createTask() {
       var _this = this;
 
       axios.post('/api/tasks', this.task).then(function (res) {
@@ -38894,7 +38894,8 @@ var render = function() {
                       "v-btn",
                       {
                         staticClass: "btn btn-primary",
-                        attrs: { type: "submit", color: "primary", dark: "" }
+                        attrs: { type: "button", color: "primary", dark: "" },
+                        on: { click: _vm.createTask }
                       },
                       [_vm._v("Submit")]
                     )
@@ -38939,184 +38940,162 @@ var render = function() {
           "div",
           { staticClass: "col-sm-6" },
           [
-            _c(
-              "v-form",
-              {
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.updateTask($event)
-                  }
-                }
-              },
-              [
-                _c(
-                  "div",
-                  [
-                    _c("v-row", [
-                      _c(
-                        "div",
-                        { staticClass: "form-row" },
-                        [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "col-sm-3 col-form-label",
-                              attrs: { for: "id" }
-                            },
-                            [_vm._v("ID")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-col",
-                            {
-                              attrs: { cols: "9", sm: "”4”", id: "form-text" }
-                            },
-                            [
-                              _c(
-                                "p",
-                                {
-                                  staticClass:
-                                    "col-sm-9 form-control-plaintext",
-                                  attrs: {
-                                    readonly: "",
-                                    id: "id",
-                                    value: _vm.taskId
-                                  }
-                                },
-                                [_vm._v(_vm._s(_vm.taskId))]
-                              )
-                            ]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "form-row" },
-                        [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "col-sm-3 col-form-label",
-                              attrs: { for: "title" }
-                            },
-                            [_vm._v("Title")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-col",
-                            {
-                              attrs: { cols: "9", sm: "”4”", id: "form-text" }
-                            },
-                            [
-                              _c("v-text-field", {
-                                attrs: { id: "title", clearable: "" },
-                                model: {
-                                  value: _vm.task.title,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.task, "title", $$v)
-                                  },
-                                  expression: "task.title"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "form-row" },
-                        [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "col-sm-3 col-form-label",
-                              attrs: { for: "content" }
-                            },
-                            [_vm._v("Content")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-col",
-                            {
-                              attrs: { cols: "9", sm: "”4”", id: "form-text" }
-                            },
-                            [
-                              _c("v-text-field", {
-                                attrs: { id: "content", clearable: "" },
-                                model: {
-                                  value: _vm.task.content,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.task, "content", $$v)
-                                  },
-                                  expression: "task.content"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "form-row" },
-                        [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "col-sm-3 col-form-label",
-                              attrs: { for: "person-in-charge" }
-                            },
-                            [_vm._v("Person In Charge")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-col",
-                            {
-                              attrs: { cols: "9", sm: "”4”", id: "form-text" }
-                            },
-                            [
-                              _c("v-text-field", {
+            _c("v-form", [
+              _c(
+                "div",
+                [
+                  _c("v-row", [
+                    _c(
+                      "div",
+                      { staticClass: "form-row" },
+                      [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-3 col-form-label",
+                            attrs: { for: "id" }
+                          },
+                          [_vm._v("ID")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "9", sm: "”4”", id: "form-text" } },
+                          [
+                            _c(
+                              "p",
+                              {
+                                staticClass: "col-sm-9 form-control-plaintext",
                                 attrs: {
-                                  id: "person-in-charge",
-                                  clearable: ""
-                                },
-                                model: {
-                                  value: _vm.task.person_in_charge,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.task, "person_in_charge", $$v)
-                                  },
-                                  expression: "task.person_in_charge"
+                                  readonly: "",
+                                  id: "id",
+                                  value: _vm.taskId
                                 }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]),
+                              },
+                              [_vm._v(_vm._s(_vm.taskId))]
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
                     _c(
-                      "v-btn",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { type: "submit", color: "primary", dark: "" }
-                      },
-                      [_vm._v("Submit")]
+                      "div",
+                      { staticClass: "form-row" },
+                      [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-3 col-form-label",
+                            attrs: { for: "title" }
+                          },
+                          [_vm._v("Title")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "9", sm: "”4”", id: "form-text" } },
+                          [
+                            _c("v-text-field", {
+                              attrs: { id: "title", clearable: "" },
+                              model: {
+                                value: _vm.task.title,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.task, "title", $$v)
+                                },
+                                expression: "task.title"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-row" },
+                      [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-3 col-form-label",
+                            attrs: { for: "content" }
+                          },
+                          [_vm._v("Content")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "9", sm: "”4”", id: "form-text" } },
+                          [
+                            _c("v-text-field", {
+                              attrs: { id: "content", clearable: "" },
+                              model: {
+                                value: _vm.task.content,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.task, "content", $$v)
+                                },
+                                expression: "task.content"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-row" },
+                      [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-3 col-form-label",
+                            attrs: { for: "person-in-charge" }
+                          },
+                          [_vm._v("Person In Charge")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "9", sm: "”4”", id: "form-text" } },
+                          [
+                            _c("v-text-field", {
+                              attrs: { id: "person-in-charge", clearable: "" },
+                              model: {
+                                value: _vm.task.person_in_charge,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.task, "person_in_charge", $$v)
+                                },
+                                expression: "task.person_in_charge"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
                     )
-                  ],
-                  1
-                )
-              ]
-            )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "button", color: "primary", dark: "" },
+                      on: { click: _vm.updateTask }
+                    },
+                    [_vm._v("Submit")]
+                  )
+                ],
+                1
+              )
+            ])
           ],
           1
         )
@@ -39151,21 +39130,48 @@ var render = function() {
       _c("table", { staticClass: "table table-hover" }, [
         _c("thead", { staticClass: "thead-light" }, [
           _c("tr", [
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("id")]),
+            _c(
+              "th",
+              { staticStyle: { width: "100px" }, attrs: { scope: "col" } },
+              [_vm._v("id")]
+            ),
             _vm._v(" "),
             _c("th", { attrs: { scope: "col" } }, [_vm._v("Title")]),
             _vm._v(" "),
             _c("th", { attrs: { scope: "col" } }, [_vm._v("Content")]),
             _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Person In Charge")]),
+            _c(
+              "th",
+              { staticStyle: { width: "300px" }, attrs: { scope: "col" } },
+              [_vm._v("Person In Charge")]
+            ),
             _vm._v(" "),
-            _c("th", { attrs: { id: "show", scope: "col" } }, [_vm._v("Show")]),
+            _c(
+              "th",
+              {
+                staticStyle: { width: "100px" },
+                attrs: { id: "show", scope: "col" }
+              },
+              [_vm._v("Show")]
+            ),
             _vm._v(" "),
-            _c("th", { attrs: { id: "edit", scope: "col" } }, [_vm._v("Edit")]),
+            _c(
+              "th",
+              {
+                staticStyle: { width: "80px" },
+                attrs: { id: "edit", scope: "col" }
+              },
+              [_vm._v("Edit")]
+            ),
             _vm._v(" "),
-            _c("th", { attrs: { id: "delete", scope: "col" } }, [
-              _vm._v("Delete")
-            ])
+            _c(
+              "th",
+              {
+                staticStyle: { width: "100px" },
+                attrs: { id: "delete", scope: "col" }
+              },
+              [_vm._v("Delete")]
+            )
           ])
         ]),
         _vm._v(" "),

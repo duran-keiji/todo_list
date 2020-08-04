@@ -5,13 +5,13 @@
             <table class="table table-hover">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">id</th>
+                        <th scope="col" style="width:100px">id</th>
                         <th scope="col">Title</th>
                         <th scope="col">Content</th>
-                        <th scope="col">Person In Charge</th>
-                        <th id="show" scope="col">Show</th>
-                        <th id="edit" scope="col">Edit</th>
-                        <th id="delete" scope="col">Delete</th>
+                        <th scope="col" style="width:300px">Person In Charge</th>
+                        <th id="show" scope="col" style="width:100px">Show</th>
+                        <th id="edit" scope="col" style="width:80px">Edit</th>
+                        <th id="delete" scope="col" style="width:100px">Delete</th>
                     </tr>
                 </thead>
                 <tbody>

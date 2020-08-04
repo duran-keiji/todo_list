@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-6">
-                    <v-form v-on:submit.prevent="updateTask">
+                    <v-form>
                         <div>    
                             <v-row>
                                 <div class="form-row">
@@ -31,7 +31,7 @@
                                         <v-text-field
                                             id="content"
                                             v-model="task.content"
-                                            clearable
+                                            clearable       
                                         >
                                         </v-text-field>
                                     </v-col>
@@ -49,7 +49,7 @@
                                     </v-col>
                                 </div>
                             </v-row>
-                            <v-btn type="submit" color="primary" dark class="btn btn-primary">Submit</v-btn>
+                            <v-btn v-on:click="updateTask" type="button" color="primary" dark class="btn btn-primary">Submit</v-btn>
                         </div>
                     </v-form>
                 </div>
