@@ -1814,6 +1814,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1844,6 +1845,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -1947,6 +1949,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6583,7 +6593,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.form-row[data-v-78028f01] {\n    display: contents;\n}\n#form-text[data-v-78028f01] {\n    margin-top: -15px;\n}\n.btn[data-v-78028f01] {\n    display: block;\n    margin: 40px 0 0 auto;\n}\nv-text-field[data-v-78028f01] {\n    word-wrap: break-word;\n}\n\n", ""]);
+exports.push([module.i, "\n.form-row[data-v-78028f01] {\n    display: contents;\n}\n#form-text[data-v-78028f01] {\n    margin-top: -15px;\n    margin-bottom: 60px;\n}\n.btn[data-v-78028f01] {\n    display: block;\n    margin: 40px 0 0 auto;\n}\nv-text-field[data-v-78028f01] {\n    word-wrap: break-word;\n}\n\n", ""]);
 
 // exports
 
@@ -6602,7 +6612,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.form-row[data-v-e57eaa9a] {\n    display: contents;\n}\n#form-text[data-v-e57eaa9a] {\n    margin-top: -13.5px;\n}\n.btn[data-v-e57eaa9a] {\n    display: block;\n    margin: 40px 0 0 auto;\n}\n\n", ""]);
+exports.push([module.i, "\n.form-row[data-v-e57eaa9a] {\n    display: contents;\n}\n#form-text[data-v-e57eaa9a] {\n    margin-top: -20px;\n    margin-bottom: 80px;\n}\n#idField[data-v-e57eaa9a] {\n    margin-top: -13px;\n}\n.btn[data-v-e57eaa9a] {\n    display: block;\n    margin: 40px 0 0 auto;\n}\n\n", ""]);
 
 // exports
 
@@ -6621,7 +6631,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#show[data-v-a75d8ec2] {\n     padding-left : 32px;\n}\n#edit[data-v-a75d8ec2] {\n     padding-left : 32px;\n}\n#delete[data-v-a75d8ec2] {\n     padding-left : 32px;\n}\n\n", ""]);
+exports.push([module.i, "\n#show[data-v-a75d8ec2] {\n     padding-left : 32px;\n}\n#edit[data-v-a75d8ec2] {\n     padding-left : 32px;\n}\n#delete[data-v-a75d8ec2] {\n     padding-left : 32px;\n}\n.v-input__slot[data-v-a75d8ec2] {\n     padding-left: 0px !important;\n}\n", ""]);
 
 // exports
 
@@ -38836,8 +38846,8 @@ var render = function() {
                               attrs: { cols: "9", sm: "”4”", id: "form-text" }
                             },
                             [
-                              _c("v-text-field", {
-                                attrs: { id: "content" },
+                              _c("v-textarea", {
+                                attrs: { id: "content", outlined: "" },
                                 model: {
                                   value: _vm.task.content,
                                   callback: function($$v) {
@@ -38953,41 +38963,6 @@ var render = function() {
                           "label",
                           {
                             staticClass: "col-sm-3 col-form-label",
-                            attrs: { for: "id" }
-                          },
-                          [_vm._v("ID")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "v-col",
-                          { attrs: { cols: "9", sm: "”4”", id: "form-text" } },
-                          [
-                            _c(
-                              "p",
-                              {
-                                staticClass: "col-sm-9 form-control-plaintext",
-                                attrs: {
-                                  readonly: "",
-                                  id: "id",
-                                  value: _vm.taskId
-                                }
-                              },
-                              [_vm._v(_vm._s(_vm.taskId))]
-                            )
-                          ]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "form-row" },
-                      [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-sm-3 col-form-label",
                             attrs: { for: "title" }
                           },
                           [_vm._v("Title")]
@@ -39031,8 +39006,12 @@ var render = function() {
                           "v-col",
                           { attrs: { cols: "9", sm: "”4”", id: "form-text" } },
                           [
-                            _c("v-text-field", {
-                              attrs: { id: "content", clearable: "" },
+                            _c("v-textarea", {
+                              attrs: {
+                                id: "content",
+                                clearable: "",
+                                outlined: ""
+                              },
                               model: {
                                 value: _vm.task.content,
                                 callback: function($$v) {
@@ -39132,17 +39111,22 @@ var render = function() {
           _c("tr", [
             _c(
               "th",
-              { staticStyle: { width: "100px" }, attrs: { scope: "col" } },
-              [_vm._v("id")]
+              { staticStyle: { width: "280px" }, attrs: { scope: "col" } },
+              [_vm._v("Title")]
             ),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Title")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Content")]),
             _vm._v(" "),
             _c(
               "th",
-              { staticStyle: { width: "300px" }, attrs: { scope: "col" } },
+              {
+                staticStyle: { width: "320px", "padding-left": "38px" },
+                attrs: { scope: "col" }
+              },
+              [_vm._v("Content")]
+            ),
+            _vm._v(" "),
+            _c(
+              "th",
+              { staticStyle: { width: "100px" }, attrs: { scope: "col" } },
               [_vm._v("Person In Charge")]
             ),
             _vm._v(" "),
@@ -39179,11 +39163,24 @@ var render = function() {
           "tbody",
           _vm._l(_vm.tasks, function(task) {
             return _c("tr", { key: task.id }, [
-              _c("td", { attrs: { scope: "row" } }, [_vm._v(_vm._s(task.id))]),
-              _vm._v(" "),
               _c("td", [_vm._v(_vm._s(task.title))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(task.content))]),
+              _c(
+                "td",
+                [
+                  _c("v-textarea", {
+                    attrs: { readonly: "", rounded: "", id: "contentArea" },
+                    model: {
+                      value: task.content,
+                      callback: function($$v) {
+                        _vm.$set(task, "content", $$v)
+                      },
+                      expression: "task.content"
+                    }
+                  })
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(task.person_in_charge))]),
               _vm._v(" "),
@@ -39298,36 +39295,6 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-sm-6" }, [
         _c("form", [
-          _c("div", { staticClass: "form-group row border-bottom" }, [
-            _c(
-              "label",
-              { staticClass: "col-sm-3 col-form-label", attrs: { for: "id" } },
-              [_vm._v("ID")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.task.id,
-                  expression: "task.id"
-                }
-              ],
-              staticClass: "col-sm-9 form-control-plaintext",
-              attrs: { type: "text", readonly: "", id: "id" },
-              domProps: { value: _vm.task.id },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.task, "id", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
           _c("div", { staticClass: "form-group row border-bottom" }, [
             _c(
               "label",

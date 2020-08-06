@@ -20,11 +20,12 @@
                                 <div class="form-row">
                                     <label for="content" class="col-sm-3 col-form-label">Content</label>
                                     <v-col cols="9" sm=”4” id="form-text">
-                                        <v-text-field
+                                        <v-textarea 
                                             id="content"
                                             v-model="task.content"
-                                        >
-                                        </v-text-field>
+                                            outlined
+                                        >  
+                                        </v-textarea>
                                     </v-col>
                                 </div>
 
@@ -72,6 +73,7 @@
     }
     #form-text {
         margin-top: -15px;
+        margin-bottom: 60px;
     }
     .btn {
         display: block;

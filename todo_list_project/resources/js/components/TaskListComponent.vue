@@ -5,10 +5,10 @@
             <table class="table table-hover">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col" style="width:100px">id</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Content</th>
-                        <th scope="col" style="width:300px">Person In Charge</th>
+                        <!-- <th scope="col" style="width:30px">id</th> -->
+                        <th scope="col" style="width:280px">Title</th>
+                        <th scope="col" style="width:320px; padding-left:38px" >Content</th>
+                        <th scope="col" style="width:100px">Person In Charge</th>
                         <th id="show" scope="col" style="width:100px">Show</th>
                         <th id="edit" scope="col" style="width:80px">Edit</th>
                         <th id="delete" scope="col" style="width:100px">Delete</th>
@@ -16,9 +16,17 @@
                 </thead>
                 <tbody>
                     <tr v-for="task in tasks" v-bind:key="task.id">
-                        <td scope="row">{{ task.id }}</td>
+                        <!-- <td scope="row">{{ task.id }}</td> -->
                         <td>{{ task.title }}</td>
-                        <td>{{ task.content }}</td>
+                        <td>
+                            <v-textarea 
+                            v-model="task.content"
+                            readonly
+                            rounded
+                            id="contentArea"
+                            >
+                            </v-textarea>
+                        </td>
                         <td>{{ task.person_in_charge }}</td>
                         <td>
                             <router-link v-bind:to="{ name: 'task.show', params: {taskId: Number(task.id)} }">
@@ -77,5 +85,7 @@
      #delete {
          padding-left : 32px;
      }
- 
+     .v-input__slot {
+         padding-left: 0px !important;
+     }
  </style>>

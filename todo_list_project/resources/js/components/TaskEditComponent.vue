@@ -6,12 +6,12 @@
                     <v-form>
                         <div>    
                             <v-row>
-                                <div class="form-row">
+                                <!-- <div class="form-row">
                                     <label for="id" class="col-sm-3 col-form-label">ID</label>
-                                    <v-col cols="9" sm=”4” id="form-text">
+                                    <v-col cols="9" sm=”4” id="idField">
                                         <p class="col-sm-9 form-control-plaintext" readonly id="id" v-bind:value="taskId">{{ taskId }}</p>
                                     </v-col>
-                                </div>
+                                </div> -->
                         
                                 <div class="form-row">
                                     <label for="title" class="col-sm-3 col-form-label">Title</label>
@@ -28,12 +28,13 @@
                                 <div class="form-row">
                                     <label for="content" class="col-sm-3 col-form-label">Content</label>
                                     <v-col cols="9" sm=”4” id="form-text">
-                                        <v-text-field
+                                        <v-textarea
                                             id="content"
                                             v-model="task.content"
-                                            clearable       
+                                            clearable
+                                            outlined       
                                         >
-                                        </v-text-field>
+                                        </v-textarea>
                                     </v-col>
                                 </div>
 
@@ -93,7 +94,11 @@
         display: contents;
     }
     #form-text {
-        margin-top: -13.5px;
+        margin-top: -20px;
+        margin-bottom: 80px;
+    }
+    #idField {
+        margin-top: -13px;
     }
     .btn {
         display: block;
