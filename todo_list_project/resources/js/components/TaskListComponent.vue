@@ -6,10 +6,11 @@
                 <thead class="thead-light">
                     <tr>
                         <!-- <th scope="col" style="width:30px">id</th> -->
+                        <th scope="col" style="width:30px">Priority</th>
                         <th scope="col" style="width:280px">Title</th>
                         <th scope="col" style="width:320px; padding-left:38px" >Content</th>
                         <th scope="col" style="width:100px">Person In Charge</th>
-                        <th id="show" scope="col" style="width:100px">Show</th>
+                        <!-- <th id="show" scope="col" style="width:100px">Show</th> -->
                         <th id="edit" scope="col" style="width:80px">Edit</th>
                         <th id="delete" scope="col" style="width:100px">Delete</th>
                     </tr>
@@ -17,6 +18,7 @@
                 <tbody>
                     <tr v-for="task in tasks" v-bind:key="task.id">
                         <!-- <td scope="row">{{ task.id }}</td> -->
+                        <td scope="row" >{{ task.priority }}</td>
                         <td>{{ task.title }}</td>
                         <td>
                             <v-textarea 
@@ -28,11 +30,11 @@
                             </v-textarea>
                         </td>
                         <td>{{ task.person_in_charge }}</td>
-                        <td>
+                        <!-- <td>
                             <router-link v-bind:to="{ name: 'task.show', params: {taskId: Number(task.id)} }">
                                 <v-btn color="primary" dark class="show_btn btn-primary">Show</v-btn>
                             </router-link>
-                        </td>
+                        </td> -->
                         <td>
                             <router-link v-bind:to="{ name: 'task.edit', params: {taskId: Number(task.id)} }">
                                 <v-btn color="teal" dark  class="btn edit_btn-success">Edit</v-btn>
@@ -52,7 +54,7 @@
     export default {
         data: function () {
             return {
-                tasks: []
+                tasks: [],
             }
         },
         methods: {
@@ -60,6 +62,20 @@
                 axios.get('/api/tasks')
                     .then((res) => {
                         this.tasks = res.data;
+                        for (var i = 0; i < this.tasks.length; i++) {
+                            switch (this.tasks[i].priority){
+                            case 1:
+                                this.tasks[i].priority = '高'
+                                break;
+                            case 2:
+                                this.tasks[i].priority = '中'
+                                break;
+                            case 3:
+                                this.tasks[i].priority = '低'
+                                break;
+                            }
+                        }
+                        
                     });
             },
             deleteTask(taskId) {

@@ -12,6 +12,19 @@
                                         <p class="col-sm-9 form-control-plaintext" readonly id="id" v-bind:value="taskId">{{ taskId }}</p>
                                     </v-col>
                                 </div> -->
+                                <div class="form-row">
+                                    <label for="priority" class="col-sm-3 col-form-label">Priority</label>
+                                    <v-col cols="9" sm="4" id="form-text">
+                                        <v-select
+                                        v-model="selected"
+                                        dense
+                                        outlined
+                                        :items="options"
+                                        item-text="text"
+                                        item-value="value"
+                                        ></v-select>
+                                    </v-col>
+                                </div>
                         
                                 <div class="form-row">
                                     <label for="title" class="col-sm-3 col-form-label">Title</label>
@@ -66,7 +79,13 @@
         },
         data: function () {
             return {
-                task: {}
+                task: {},
+                selected: {},
+                options: [
+                { text: '高', value: '1' },
+                { text: '中', value: '2' },
+                { text: '低', value: '3' },
+                ],
             }
         },
         methods: {
@@ -74,9 +93,21 @@
                 axios.get('/api/tasks/' + this.taskId )
                     .then((res) => {
                         this.task = res.data;
+                        switch (this.task.priority){
+                            case 1:
+                                this.selected = { text: '高', value: '1' };
+                                break;
+                            case 2:
+                                this.selected = { text: '中', value: '2' };
+                                break;
+                            case 3:
+                                this.selected = { text: '低', value: '3' };
+                                break;
+                            }
                     });
             },
             updateTask() {
+                this.task.priority = this.selected;
                 axios.put('/api/tasks/' + this.taskId, this.task)
                     .then((res) => {
                         this.$router.push({ name: 'task.list' });
@@ -95,9 +126,9 @@
     }
     #form-text {
         margin-top: -20px;
-        margin-bottom: 80px;
+        margin-bottom: 50px;
     }
-    #idField {
+    #priority-select {
         margin-top: -13px;
     }
     .btn {

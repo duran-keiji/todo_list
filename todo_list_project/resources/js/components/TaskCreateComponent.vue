@@ -7,6 +7,21 @@
                         <div>
                             <v-row>
                                 <div class="form-row">
+                                    <label for="priority" class="col-sm-3 col-form-label">Priority</label>
+                                    <v-col cols="9" sm="4" id="form-text">
+                                        <v-select
+                                        v-model="selected"
+                                        dense
+                                        outlined
+                                        :items="options"
+                                        item-text="text"
+                                        item-value="value"
+                                        >                                 
+                                        </v-select>
+                                    </v-col>
+                                </div>
+
+                                <div class="form-row">
                                     <label for="title" class="col-sm-3 col-form-label">Title</label>
                                     <v-col cols="9" sm=”4” id="form-text">
                                         <v-text-field
@@ -53,11 +68,18 @@
     export default {
         data: function() {
             return {
-                task: {}
+                task: {},
+                selected: { text: '中', value: '2' },
+                options: [
+                { text: '高', value: '1' },
+                { text: '中', value: '2' },
+                { text: '低', value: '3' },
+                ],
             }
         },
         methods: {
-            createTask() {
+            createTask() { 
+                this.task.priority = this.selected;   
                 axios.post('/api/tasks', this.task)
                     .then((res) => {
                         this.$router.push({ name: 'task.list' });

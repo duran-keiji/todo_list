@@ -1815,16 +1815,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      task: {}
+      task: {},
+      selected: {
+        text: '中',
+        value: '2'
+      },
+      options: [{
+        text: '高',
+        value: '1'
+      }, {
+        text: '中',
+        value: '2'
+      }, {
+        text: '低',
+        value: '3'
+      }]
     };
   },
   methods: {
     createTask: function createTask() {
       var _this = this;
 
+      this.task.priority = this.selected;
       axios.post('/api/tasks', this.task).then(function (res) {
         _this.$router.push({
           name: 'task.list'
@@ -1906,13 +1936,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     taskId: Number
   },
   data: function data() {
     return {
-      task: {}
+      task: {},
+      selected: {},
+      options: [{
+        text: '高',
+        value: '1'
+      }, {
+        text: '中',
+        value: '2'
+      }, {
+        text: '低',
+        value: '3'
+      }]
     };
   },
   methods: {
@@ -1921,11 +1975,35 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/tasks/' + this.taskId).then(function (res) {
         _this.task = res.data;
+
+        switch (_this.task.priority) {
+          case 1:
+            _this.selected = {
+              text: '高',
+              value: '1'
+            };
+            break;
+
+          case 2:
+            _this.selected = {
+              text: '中',
+              value: '2'
+            };
+            break;
+
+          case 3:
+            _this.selected = {
+              text: '低',
+              value: '3'
+            };
+            break;
+        }
       });
     },
     updateTask: function updateTask() {
       var _this2 = this;
 
+      this.task.priority = this.selected;
       axios.put('/api/tasks/' + this.taskId, this.task).then(function (res) {
         _this2.$router.push({
           name: 'task.list'
@@ -1999,6 +2077,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2011,6 +2091,22 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/tasks').then(function (res) {
         _this.tasks = res.data;
+
+        for (var i = 0; i < _this.tasks.length; i++) {
+          switch (_this.tasks[i].priority) {
+            case 1:
+              _this.tasks[i].priority = '高';
+              break;
+
+            case 2:
+              _this.tasks[i].priority = '中';
+              break;
+
+            case 3:
+              _this.tasks[i].priority = '低';
+              break;
+          }
+        }
       });
     },
     deleteTask: function deleteTask(taskId) {
@@ -6612,7 +6708,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.form-row[data-v-e57eaa9a] {\n    display: contents;\n}\n#form-text[data-v-e57eaa9a] {\n    margin-top: -20px;\n    margin-bottom: 80px;\n}\n#idField[data-v-e57eaa9a] {\n    margin-top: -13px;\n}\n.btn[data-v-e57eaa9a] {\n    display: block;\n    margin: 40px 0 0 auto;\n}\n\n", ""]);
+exports.push([module.i, "\n.form-row[data-v-e57eaa9a] {\n    display: contents;\n}\n#form-text[data-v-e57eaa9a] {\n    margin-top: -20px;\n    margin-bottom: 50px;\n}\n#priority-select[data-v-e57eaa9a] {\n    margin-top: -13px;\n}\n.btn[data-v-e57eaa9a] {\n    display: block;\n    margin: 40px 0 0 auto;\n}\n\n", ""]);
 
 // exports
 
@@ -38799,6 +38895,46 @@ var render = function() {
                             "label",
                             {
                               staticClass: "col-sm-3 col-form-label",
+                              attrs: { for: "priority" }
+                            },
+                            [_vm._v("Priority")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "9", sm: "4", id: "form-text" } },
+                            [
+                              _c("v-select", {
+                                attrs: {
+                                  dense: "",
+                                  outlined: "",
+                                  items: _vm.options,
+                                  "item-text": "text",
+                                  "item-value": "value"
+                                },
+                                model: {
+                                  value: _vm.selected,
+                                  callback: function($$v) {
+                                    _vm.selected = $$v
+                                  },
+                                  expression: "selected"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-row" },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-3 col-form-label",
                               attrs: { for: "title" }
                             },
                             [_vm._v("Title")]
@@ -38963,6 +39099,46 @@ var render = function() {
                           "label",
                           {
                             staticClass: "col-sm-3 col-form-label",
+                            attrs: { for: "priority" }
+                          },
+                          [_vm._v("Priority")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "9", sm: "4", id: "form-text" } },
+                          [
+                            _c("v-select", {
+                              attrs: {
+                                dense: "",
+                                outlined: "",
+                                items: _vm.options,
+                                "item-text": "text",
+                                "item-value": "value"
+                              },
+                              model: {
+                                value: _vm.selected,
+                                callback: function($$v) {
+                                  _vm.selected = $$v
+                                },
+                                expression: "selected"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-row" },
+                      [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-3 col-form-label",
                             attrs: { for: "title" }
                           },
                           [_vm._v("Title")]
@@ -39111,6 +39287,12 @@ var render = function() {
           _c("tr", [
             _c(
               "th",
+              { staticStyle: { width: "30px" }, attrs: { scope: "col" } },
+              [_vm._v("Priority")]
+            ),
+            _vm._v(" "),
+            _c(
+              "th",
               { staticStyle: { width: "280px" }, attrs: { scope: "col" } },
               [_vm._v("Title")]
             ),
@@ -39128,15 +39310,6 @@ var render = function() {
               "th",
               { staticStyle: { width: "100px" }, attrs: { scope: "col" } },
               [_vm._v("Person In Charge")]
-            ),
-            _vm._v(" "),
-            _c(
-              "th",
-              {
-                staticStyle: { width: "100px" },
-                attrs: { id: "show", scope: "col" }
-              },
-              [_vm._v("Show")]
             ),
             _vm._v(" "),
             _c(
@@ -39163,6 +39336,10 @@ var render = function() {
           "tbody",
           _vm._l(_vm.tasks, function(task) {
             return _c("tr", { key: task.id }, [
+              _c("td", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(task.priority))
+              ]),
+              _vm._v(" "),
               _c("td", [_vm._v(_vm._s(task.title))]),
               _vm._v(" "),
               _c(
@@ -39183,35 +39360,6 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(task.person_in_charge))]),
-              _vm._v(" "),
-              _c(
-                "td",
-                [
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: {
-                          name: "task.show",
-                          params: { taskId: Number(task.id) }
-                        }
-                      }
-                    },
-                    [
-                      _c(
-                        "v-btn",
-                        {
-                          staticClass: "show_btn btn-primary",
-                          attrs: { color: "primary", dark: "" }
-                        },
-                        [_vm._v("Show")]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
               _vm._v(" "),
               _c(
                 "td",

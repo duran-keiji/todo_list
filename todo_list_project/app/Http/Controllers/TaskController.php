@@ -10,7 +10,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return Task::all();
+            return Task::all();
     }
 
     public function store(TaskRequest $request)
