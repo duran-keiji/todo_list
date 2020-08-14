@@ -10,7 +10,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-            return Task::all();
+            return Task::orderBy('priority', 'asc')->get();
     }
 
     public function store(TaskRequest $request)
