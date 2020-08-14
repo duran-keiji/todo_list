@@ -1751,6 +1751,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -38803,49 +38805,56 @@ var render = function() {
         },
         [
           _c("div", { staticClass: "container" }, [
-            _c("nav", { staticClass: "navbar navbar-dark" }, [
-              _c("span", { staticClass: "navbar-brand mb-0 h1" }, [
-                _vm._v("Todo List")
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "task.list" } } },
-                    [
-                      _c(
-                        "v-btn",
-                        {
-                          staticClass: "btn1 btn-success",
-                          attrs: { color: "deep-orange" }
-                        },
-                        [_vm._v("List")]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "task.create" } } },
-                    [
-                      _c(
-                        "v-btn",
-                        {
-                          staticClass: "btn2 btn-success",
-                          attrs: { color: "deep-orange" }
-                        },
-                        [_vm._v("ADD")]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ])
+            _c(
+              "nav",
+              { staticClass: "navbar navbar-dark" },
+              [
+                _c("router-link", { attrs: { to: { name: "task.list" } } }, [
+                  _c("span", { staticClass: "navbar-brand mb-0 h1" }, [
+                    _vm._v("Todo List")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c(
+                      "router-link",
+                      { attrs: { to: { name: "task.list" } } },
+                      [
+                        _c(
+                          "v-btn",
+                          {
+                            staticClass: "btn1 btn-success",
+                            attrs: { color: "deep-orange" }
+                          },
+                          [_vm._v("List")]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      { attrs: { to: { name: "task.create" } } },
+                      [
+                        _c(
+                          "v-btn",
+                          {
+                            staticClass: "btn2 btn-success",
+                            attrs: { color: "deep-orange" }
+                          },
+                          [_vm._v("ADD")]
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
           ])
         ]
       )

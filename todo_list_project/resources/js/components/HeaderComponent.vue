@@ -3,7 +3,9 @@
         <div background-color="deep-purple accent-4" class="container-fluid mb-3">
             <div class="container">
                 <nav class="navbar navbar-dark">
-                    <span class="navbar-brand mb-0 h1">Todo List</span>
+                    <router-link v-bind:to="{name: 'task.list'}">
+                        <span class="navbar-brand mb-0 h1">Todo List</span>
+                    </router-link>
                     <div>
                         <router-link v-bind:to="{name: 'task.list'}">
                             <v-btn color="deep-orange" class="btn1 btn-success">List</v-btn>
