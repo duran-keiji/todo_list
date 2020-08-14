@@ -5,8 +5,8 @@
                 <div class="col-sm-6">
                     <v-form v-on:submit.prevent="submit">
                         <div>
-                            <v-row>
-                                <div class="form-row">
+                            <div>
+                                <div class="form-row" style="height: 80px">
                                     <label for="priority" class="col-sm-3 col-form-label">Priority</label>
                                     <v-col cols="9" sm="4" id="form-text">
                                         <v-select
@@ -16,6 +16,7 @@
                                         :items="options"
                                         item-text="text"
                                         item-value="value"
+                                        return-object
                                         >                                 
                                         </v-select>
                                     </v-col>
@@ -44,7 +45,7 @@
                                     </v-col>
                                 </div>
 
-                                <div class="form-row">
+                                <div class="form-row" style="height: 80px">
                                     <label for="person-in-charge" class="col-sm-3 col-form-label">Person In Charge</label>
                                     <v-col cols="9" sm=”4” id="form-text">
                                         <v-text-field
@@ -54,7 +55,7 @@
                                         </v-text-field>
                                     </v-col>
                                 </div>
-                            </v-row>
+                            </div>
                             <v-btn v-on:click="createTask" type="button" color="primary" dark class="btn btn-primary">Submit</v-btn>
                         </div>
                     </v-form>
@@ -69,17 +70,17 @@
         data: function() {
             return {
                 task: {},
-                selected: { text: '中', value: '2' },
+                selected: { text: '中', value: 2 },
                 options: [
-                { text: '高', value: '1' },
-                { text: '中', value: '2' },
-                { text: '低', value: '3' },
+                { text: '高', value: 1 },
+                { text: '中', value: 2 },
+                { text: '低', value: 3 },
                 ],
             }
         },
         methods: {
             createTask() { 
-                this.task.priority = this.selected;   
+                this.task.priority = this.selected.value;
                 axios.post('/api/tasks', this.task)
                     .then((res) => {
                         this.$router.push({ name: 'task.list' });
@@ -91,7 +92,7 @@
 
   <style scoped>
     .form-row {
-        display: contents;
+        display: flex;
     }
     #form-text {
         margin-top: -15px;

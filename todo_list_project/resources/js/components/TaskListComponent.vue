@@ -6,7 +6,7 @@
                 <thead class="thead-light">
                     <tr>
                         <!-- <th scope="col" style="width:30px">id</th> -->
-                        <th scope="col" style="width:30px">Priority</th>
+                        <th scope="col" style="width:30px; text-align:center">Priority</th>
                         <th scope="col" style="width:280px">Title</th>
                         <th scope="col" style="width:320px; padding-left:38px" >Content</th>
                         <th scope="col" style="width:100px">Person In Charge</th>
@@ -18,14 +18,15 @@
                 <tbody>
                     <tr v-for="task in tasks" v-bind:key="task.id">
                         <!-- <td scope="row">{{ task.id }}</td> -->
-                        <td scope="row" >{{ task.priority }}</td>
+                        <td scope="row" v-bind:class="task.colors" style="text-align:center">{{ task.priority }}</td>
                         <td>{{ task.title }}</td>
                         <td>
                             <v-textarea 
                             v-model="task.content"
                             readonly
                             rounded
-                            id="contentArea"
+                            class="content"
+                            id="content_area"
                             >
                             </v-textarea>
                         </td>
@@ -66,12 +67,15 @@
                             switch (this.tasks[i].priority){
                             case 1:
                                 this.tasks[i].priority = '高'
+                                this.tasks[i].colors = 'high'
                                 break;
                             case 2:
                                 this.tasks[i].priority = '中'
+                                this.tasks[i].colors = 'middle'
                                 break;
                             case 3:
                                 this.tasks[i].priority = '低'
+                                this.tasks[i].colors = 'low'
                                 break;
                             }
                         }
@@ -93,15 +97,29 @@
 
  <style scoped>
     #show {
-         padding-left : 32px;
+        padding-left : 32px;
      }
      #edit {
-         padding-left : 32px;
+        padding-left : 32px;
      }
      #delete {
-         padding-left : 32px;
+        padding-left : 32px;
+     }
+     .content {
+        margin-top:0px;
+        padding-top:0px;
+        font-size:14.4px;
      }
      .v-input__slot {
          padding-left: 0px !important;
+     }
+     .high {
+        background: #EF5350;
+     }
+     .middle {
+        background: #4DB6AC;
+     }
+     .low {
+        background: #64B5F6;
      }
  </style>>
