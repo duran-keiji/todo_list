@@ -1825,30 +1825,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       task: {},
       selected: {
-        text: '中',
+        text: "中",
         value: 2
       },
       options: [{
-        text: '高',
+        text: "高",
         value: 1
       }, {
-        text: '中',
+        text: "中",
         value: 2
       }, {
-        text: '低',
+        text: "低",
         value: 3
       }]
     };
@@ -1858,9 +1850,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.task.priority = this.selected.value;
-      axios.post('/api/tasks', this.task).then(function (res) {
+      axios.post("/api/tasks", this.task).then(function (res) {
         _this.$router.push({
-          name: 'task.list'
+          name: "task.list"
         });
       });
     }
@@ -1943,16 +1935,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     taskId: Number
@@ -1961,17 +1943,17 @@ __webpack_require__.r(__webpack_exports__);
     return {
       task: {},
       selected: {
-        text: '中',
+        text: "中",
         value: 2
       },
       options: [{
-        text: '高',
+        text: "高",
         value: 1
       }, {
-        text: '中',
+        text: "中",
         value: 2
       }, {
-        text: '低',
+        text: "低",
         value: 3
       }]
     };
@@ -1980,27 +1962,27 @@ __webpack_require__.r(__webpack_exports__);
     getTask: function getTask() {
       var _this = this;
 
-      axios.get('/api/tasks/' + this.taskId).then(function (res) {
+      axios.get("/api/tasks/" + this.taskId).then(function (res) {
         _this.task = res.data;
 
         switch (_this.task.priority) {
           case 1:
             _this.selected = {
-              text: '高',
+              text: "高",
               value: 1
             };
             break;
 
           case 2:
             _this.selected = {
-              text: '中',
+              text: "中",
               value: 2
             };
             break;
 
           case 3:
             _this.selected = {
-              text: '低',
+              text: "低",
               value: 3
             };
             break;
@@ -2011,9 +1993,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.task.priority = this.selected.value;
-      axios.put('/api/tasks/' + this.taskId, this.task).then(function (res) {
+      axios.put("/api/tasks/" + this.taskId, this.task).then(function (res) {
         _this2.$router.push({
-          name: 'task.list'
+          name: "task.list"
         });
       });
     }
@@ -2084,9 +2066,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2097,24 +2076,24 @@ __webpack_require__.r(__webpack_exports__);
     getTasks: function getTasks() {
       var _this = this;
 
-      axios.get('/api/tasks').then(function (res) {
+      axios.get("/api/tasks").then(function (res) {
         _this.tasks = res.data;
 
         for (var i = 0; i < _this.tasks.length; i++) {
           switch (_this.tasks[i].priority) {
             case 1:
-              _this.tasks[i].priority = '高';
-              _this.tasks[i].colors = 'high';
+              _this.tasks[i].priority = "高";
+              _this.tasks[i].colors = "high";
               break;
 
             case 2:
-              _this.tasks[i].priority = '中';
-              _this.tasks[i].colors = 'middle';
+              _this.tasks[i].priority = "中";
+              _this.tasks[i].colors = "middle";
               break;
 
             case 3:
-              _this.tasks[i].priority = '低';
-              _this.tasks[i].colors = 'low';
+              _this.tasks[i].priority = "低";
+              _this.tasks[i].colors = "low";
               break;
           }
         }
@@ -2123,7 +2102,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteTask: function deleteTask(taskId) {
       var _this2 = this;
 
-      axios["delete"]('/api/tasks/' + taskId).then(function (res) {
+      axios["delete"]("/api/tasks/" + taskId).then(function (res) {
         _this2.getTasks();
       });
     }
@@ -6681,7 +6660,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.container-fluid[data-v-153bfd55] {\n  background-color: #004D40;\n}\n.btn1[data-v-153bfd55] {\n  margin-right: 15px;\n}\n", ""]);
+exports.push([module.i, "\n.container-fluid[data-v-153bfd55] {\n  background-color: #004d40;\n}\n.btn1[data-v-153bfd55] {\n  margin-right: 15px;\n}\n", ""]);
 
 // exports
 
@@ -6700,7 +6679,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.form-row[data-v-78028f01] {\n    display: flex;\n}\n#form-text[data-v-78028f01] {\n    margin-top: -15px;\n    margin-bottom: 60px;\n}\n.btn[data-v-78028f01] {\n    display: block;\n    margin: 40px 0 0 auto;\n}\nv-text-field[data-v-78028f01] {\n    word-wrap: break-word;\n}\n\n", ""]);
+exports.push([module.i, "\n.form-row[data-v-78028f01] {\n  display: flex;\n}\n#form-text[data-v-78028f01] {\n  margin-top: -15px;\n  margin-bottom: 60px;\n}\n.btn[data-v-78028f01] {\n  display: block;\n  margin: 40px 0 0 auto;\n}\nv-text-field[data-v-78028f01] {\n  word-wrap: break-word;\n}\n", ""]);
 
 // exports
 
@@ -6719,7 +6698,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.form-row[data-v-e57eaa9a] {\n    display: flex;\n}\n#form-text[data-v-e57eaa9a] {\n    margin-top: -20px;\n    margin-bottom: 50px;\n}\n#priority-select[data-v-e57eaa9a] {\n    margin-top: -13px;\n}\n.btn[data-v-e57eaa9a] {\n    display: block;\n    margin: 40px 0 0 auto;\n}\n\n", ""]);
+exports.push([module.i, "\n.form-row[data-v-e57eaa9a] {\n  display: flex;\n}\n#form-text[data-v-e57eaa9a] {\n  margin-top: -20px;\n  margin-bottom: 50px;\n}\n#priority-select[data-v-e57eaa9a] {\n  margin-top: -13px;\n}\n.btn[data-v-e57eaa9a] {\n  display: block;\n  margin: 40px 0 0 auto;\n}\n", ""]);
 
 // exports
 
@@ -6738,7 +6717,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#show[data-v-a75d8ec2] {\n    padding-left : 32px;\n}\n#edit[data-v-a75d8ec2] {\n    padding-left : 32px;\n}\n#delete[data-v-a75d8ec2] {\n    padding-left : 32px;\n}\n.content[data-v-a75d8ec2] {\n    margin-top:0px;\n    padding-top:0px;\n    font-size:14.4px;\n}\n.v-input__slot[data-v-a75d8ec2] {\n     padding-left: 0px !important;\n}\n.high[data-v-a75d8ec2] {\n    background: #EF5350;\n}\n.middle[data-v-a75d8ec2] {\n    background: #4DB6AC;\n}\n.low[data-v-a75d8ec2] {\n    background: #64B5F6;\n}\n", ""]);
+exports.push([module.i, "\n#show[data-v-a75d8ec2] {\n  padding-left: 32px;\n}\n#edit[data-v-a75d8ec2] {\n  padding-left: 32px;\n}\n#delete[data-v-a75d8ec2] {\n  padding-left: 32px;\n}\n.content[data-v-a75d8ec2] {\n  margin-top: 0px;\n  padding-top: 0px;\n  font-size: 14.4px;\n}\n.v-input__slot[data-v-a75d8ec2] {\n  padding-left: 0px !important;\n}\n.high[data-v-a75d8ec2] {\n  background: #ef5350;\n}\n.middle[data-v-a75d8ec2] {\n  background: #4db6ac;\n}\n.low[data-v-a75d8ec2] {\n  background: #64b5f6;\n}\n", ""]);
 
 // exports
 
